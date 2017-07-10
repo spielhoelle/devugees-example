@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('#ajax_button').on('click',function() {
+  $('#morePhotos').on('click','button',function() {
     var button = $(this);
     $.getJSON ("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",{
       tags: 'pancakes',
@@ -8,8 +8,11 @@ $(document).ready(function () {
     })
     .done(function(response) {
       for (var i = 0 ; i < 12;i++) {
-        var photo = '<div class ="col-md-3 img-row"><img src ='+response.items[i].media.m+' class="img-thumbnail flicker-img" /> </div>' ;
-      $('#morePhotos').append(photo);
+        var photoMarkUp = '<div class ="col-md-3 img-row"><img src ='+response.items[i].media.m+' class="img-thumbnail flicker-img" /> </div>' ;
+        var photo = $.parseHTML(photoMarkUp);
+      $('#morePhotos').fadeIn('slow',function(){
+        $(this).append(photo);
+      })
       }
     });
   });
