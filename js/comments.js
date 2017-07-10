@@ -1,14 +1,16 @@
-$(document).ready(function(){
-$('#comments_submit_btn_js').click(function(){
-  var commentValue=$('#Text_area_input').val();
-  var hiddenDiv=$('.row.hidden');
-  console.log(commentValue);
-  var newComment=hiddenDiv.clone();
-  console.log(newComment);
-  hiddenDiv.before(newComment)
-  newComment.removeClass("hidden");
-  newComment.find('textarea').val(commentValue);
-$("#Text_area_input").val("");
-});
+$(document).ready(function () {
+
+  $('#comments_submit_btn_js').click(function () {
+    $.ajax('comment_partial.html', {
+      success: function (response) {
+        console.log(response);
+        var comment = response;
+        var template = $(response).find('#comment_text').html($('#Text_area_input').val())
+        $('#comment_container').before(template.parent().parent());
+        $("#Text_area_input").val("");
+      }
+    });
+
+  });
 
 });
