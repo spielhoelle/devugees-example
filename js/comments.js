@@ -8,7 +8,7 @@ $('#comments_submit_btn_js').click(function(){
   hiddenDiv.before(newComment)
   newComment.removeClass("hidden");
   newComment.find('textarea').val(commentValue);
-$("#Text_area_input").val(" ");
+$("#Text_area_input").val("");
 });
 
 });
