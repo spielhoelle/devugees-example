@@ -1,9 +1,7 @@
 $(document).ready(function() {
-
   function toNextStep(steps) {
     console.log(steps);
     $('.steps').html(steps);
-
     var width = 0;
     var button = $('.step button');
     var progressBar = $('.progress-bar');
@@ -21,21 +19,37 @@ $(document).ready(function() {
       }
     });
   }
-  $.ajax("./steps.html", {
-    timeout: 3000,
+  $.ajax("./stesps.html", {
+    timeout: 4000,
     success: function(steps) {
       setTimeout(function() {
         toNextStep(steps);
-      }, 2000);
+        $.notify({
+          message:"The steps now are loaded"
+        },{
+          type:'success',
+          animate: {
+              enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+               }
+        });
+      }, 3000);
     },
-    beforeSend: function() {
-      $(".alert").load("alert.html");
-    },
-    complete: function() {
-      setTimeout(function() {
-        $('.alert').html('<strong>info</strong>' + ' steps are now loaded!!').addClass('alert-success');
+    error:function() {
+      setTimeout(function(){
+        $.notify({
+          message:"Sorry we can't load the steps"
+        },{
+          type:'danger',
+          animate: {
+              enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+               }
+        });
 
-      }, 2000)
+      },3000)
+
+
     }
   });
 
