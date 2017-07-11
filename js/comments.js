@@ -2,6 +2,7 @@ $(document).ready(function () {
 
   $('#comments_submit_btn_js').click(function () {
     $.ajax('comment_partial.html', {
+      method: 'GET',
       success: function (response) {
         console.log(response);
         var comment = response;

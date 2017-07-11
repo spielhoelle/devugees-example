@@ -4,8 +4,7 @@
 }
 .sliderimages{
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-   /*border: 2px solid black; */
-   border-radius: 2px;
+      border-radius: 2px;
  overflow: hidden;
   width:500px;
   height: 350px;
@@ -33,4 +32,9 @@
 }
 .active{
     z-index: 0;
+}
+#image{
+    width: 100px;
+    height: 120px;
+    margin-left:250px;
 }
