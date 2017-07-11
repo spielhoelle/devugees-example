@@ -24,3 +24,8 @@
 .hidden {
   display: none;
 }
+.alertWindow {
+  display: block;
+  width: 800px;
+  height: 55px;
+}
