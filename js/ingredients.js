@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#calculate').keyup(function (event) {
+    $('#calculate').change(function (event) {
         var portions = $(this).val();
         console.log(spanValue)
         console.log(portions)
